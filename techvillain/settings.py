@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # app created externaly
-    'main',
+    'home',
     'blog'
 ]
 

@@ -10,6 +10,7 @@ class category(models.Model):
 
 class subCategory(models.Model):
     name = models.CharField(max_length=50)
+    category = models.ForeignKey(category, on_delete=models.SET_NULL, null=True, blank=True )
 
     def __str__(self):
         return self.name
@@ -20,4 +21,7 @@ class blogPost(models.Model):
     date = models.DateField(default=datetime.now)
     title = models.CharField(max_length=500)
     desc = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return self.title
 
