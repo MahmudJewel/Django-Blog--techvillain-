@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # rich text editor
+    'tinymce',
+    
     # app created externaly
     'home',
     'blog'

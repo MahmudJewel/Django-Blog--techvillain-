@@ -8,7 +8,7 @@
         <form action="" method="GET"></form>
         {% for blog in blogs %}
         <ul>
-          <a href="/?id={{blog.id}}"><li>{{blog.title}}</li></a>
+          <a href="/?getid={{blog.id}}"><li>{{blog.title}}</li></a>
         </ul>
         {% endfor %}
       </form>
@@ -25,7 +25,7 @@
         </div>
         <hr />
         <div class="row">
-          <p>{{singleBlog.desc}}</p>
+          <p>{{singleBlog.desc|safe}}</p>
         </div>
       </div>
     </div>

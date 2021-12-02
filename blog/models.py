@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+# rich text from tinymce 
+from tinymce import models as tinymce_models
 
 # Create your models here.
 class category(models.Model):
@@ -20,7 +22,7 @@ class blogPost(models.Model):
     subCategory = models.ForeignKey(subCategory, on_delete=models.SET_NULL, null=True, blank=True )
     date = models.DateField(default=datetime.now)
     title = models.CharField(max_length=500)
-    desc = models.TextField(null=True,blank=True)
+    desc = tinymce_models.HTMLField(null=True,blank=True)
 
     def __str__(self):
         return self.title
