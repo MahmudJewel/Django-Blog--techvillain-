@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'tinymce',
     
     # app created externaly
-    'home',
+    # 'home',
     'blog'
 ]
 
