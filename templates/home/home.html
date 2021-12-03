@@ -5,10 +5,11 @@
   <div class="row">
     
       <div class="col-md-3 border border-primary">
-        <form action="" method="GET"></form>
+        <h3>hello {{ blogs.category}}</h3>
+        <form action="" method="GET">
         {% for blog in blogs %}
         <ul>
-          <a href="/?getid={{blog.id}}"><li>{{blog.title}}</li></a>
+          <a href="/blog/{{blog.category.id}}?getid={{blog.id}}"><li>{{blog.title}}</li></a>
         </ul>
         {% endfor %}
       </form>

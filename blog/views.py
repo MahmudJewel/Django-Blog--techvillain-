@@ -10,10 +10,11 @@ def home_view(request):
     return render(request, 'home/home.html')
 
 
-def category_view(request):
-    blogs = BMODEL.blogPost.objects.all()
-    singleBlog = BMODEL.blogPost.objects.all().first() # get the first object
-    category = BMODEL.category.objects.all()
+def category_view(request,pk):
+    blogs = BMODEL.blogPost.objects.filter(category=pk)
+    singleBlog = blogs.first() # get the first object
+    # category = BMODEL.category.objects.all()
+    # print(f"testing category from {category}")
     if request.method=='GET':
         dc=request.GET
         pk=dc.get('getid') # getid from url link
@@ -25,6 +26,6 @@ def category_view(request):
         context= {
         'blogs':blogs,
         'singleBlog' : singleBlog,
-        'category' : category,
+        # 'category' : category,
     }
     return render(request, 'home/home.html', context)
