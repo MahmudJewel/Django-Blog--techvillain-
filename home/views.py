@@ -9,6 +9,7 @@ from blog import models as BMODEL
 def home_view(request):
     blogs = BMODEL.blogPost.objects.all()
     singleBlog = BMODEL.blogPost.objects.all().first() # get the first object
+    category = BMODEL.category.objects.all()
     if request.method=='GET':
         dc=request.GET
         pk=dc.get('getid') # getid from url link
@@ -20,5 +21,6 @@ def home_view(request):
         context= {
         'blogs':blogs,
         'singleBlog' : singleBlog,
+        'category' : category,
     }
     return render(request, 'home/home.html', context)
