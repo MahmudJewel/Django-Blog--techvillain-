@@ -1,7 +1,8 @@
 /* start navbar  */
 /* external nav font  */
 footer,
-nav {
+nav,
+.titleFont {
   /* font-family: 'Sansita Swashed', cursive; */
   /* font-family: 'Oswald', sans-serif; */
   font-family: "Acme", sans-serif;
