@@ -1,33 +1,62 @@
 {% extends 'home/base.html' %} {% block content %}
-<title>Home page</title>
+<title>{{ category}}-tech villain</title>
 
 <div class="container">
-  <div class="row">
-    
-      <div class="col-md-3 border border-primary">
-        <h3> {{ category}}</h3>
-        <form action="" method="GET">
-        {% for blog in blogs %}
-        <ul>
-          <a href="/blog/{{blog.category.id}}?getid={{blog.id}}"><li>{{blog.title}}</li></a>
-        </ul>
-        {% endfor %}
-      </form>
-      </div>
-  
+  <!-- for responsive zig-zag  -->
+  <div >
+    <div class="burger fixed-top mt-3 ms-3">
+      <div class="lin1"></div>
+      <div class="lin2"></div>
+      <div class="lin3"></div>
+    </div>
+  </div>
 
-    <div class="col-md-9 border border-success ms-auto py-3">
-      <div class="row ms-3">
+  <div class="row">
+    <!-- left-side index  -->
+    <div
+      class="
+        col-lg-3
+        shadow
+        divcolor
+        curv
+        me-3
+        py-4
+        px-md-3 px-sm-2
+        nav_right
+        bb
+      "
+    >
+      <h4>{{ category}}</h4>
+      <form action="" method="GET">
+        <table class="table">
+          {% for blog in blogs %}
+          <tr>
+            <td>
+              <a
+                href="/blog/{{blog.category.id}}?getid={{blog.id}}"
+                class="text-decoration-none {% if request.path == request.get_full_path %}active{% endif %}"
+              >
+                <h6>{{blog.title}}</h6>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </form>
+    </div>
+
+    <div class="col-lg-8 py-4 px-lg-4 px-md-3 px-sm-1 divcolor curv shadow">
+      <div class="row">
         <div class="row titleFont text-primary">
-          <h2 >{{singleBlog.title}}</h2>
+          <h2>{{singleBlog.title}}</h2>
         </div>
         <div class="row">
-          <p>Last modified : {{singleBlog.date}}</p>
+          <p>Last modified: {{singleBlog.date}}</p>
         </div>
         <hr />
-        <div class="row">
-          <p>{{singleBlog.desc|safe}}</p>
-        </div>
+        <!-- <div class="row"> -->
+        <p>{{singleBlog.desc|safe}}</p>
+        <!-- </div> -->
       </div>
     </div>
   </div>
