@@ -1,0 +1,152 @@
+
+/* common items  */
+
+/* ******************** start Nav-bar **************************** */
+/* external nav font  */
+footer,
+nav,
+.titleFont {
+  /* font-family: 'Sansita Swashed', cursive; */
+  /* font-family: 'Oswald', sans-serif; */
+  font-family: "Acme", sans-serif;
+}
+
+.navbar-brand {
+  font-family: "Sansita Swashed", cursive;
+}
+
+/* for nav background color */
+.bgcolor {
+  /* background-color: #353536; */
+  background: #5d5b6a;
+}
+
+.nav-item .btn {
+  background: #007bff;
+  padding: 3px 15px;
+  border-radius: 25px;
+}
+.nav-item .active,
+.nav-item .btn:hover {
+  background: white;
+  color: black;
+}
+.brandcolor {
+  color: skyblue;
+}
+.brandcolor:hover {
+  color: white;
+}
+/* nav toggler icon  */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+/* ******************** end Nav-bar **************************** */
+
+/* ******************** start Home **************************** */
+.border-radius25 {
+  border-radius: 25px;
+}
+.bgwhite {
+  background: white;
+}
+.textgreen {
+  color: green;
+}
+
+.heading {
+  color: green;
+  font-family: "Sansita Swashed", cursive;
+}
+/* ******************** end Home **************************** */
+
+/* ******************** start footer **************************** */
+.footerHeader {
+  padding: 0px 0px 0px 0px;
+  background-color: #212529;
+  margin: 0px;
+}
+.textColor {
+  color: blanchedalmond;
+}
+/* .activestatus {
+  background: white;
+} */
+/* ******************** end footer **************************** */
+
+/* ******************** start Article page **************************** */
+/* Article page body & div color with curv  */
+.bodycolor {
+  background: #e5ece9;
+}
+.divcolor {
+  background: white;
+}
+.curv {
+  border-radius: 15px;
+}
+
+/* left index active & hover  */
+table tr td a:hover,
+table tr td .active {
+  color: green;
+}
+
+/* start responsive left index */
+.burger {
+  margin: 5px;
+  display: none;
+  border-style: solid;
+  border-color: green;
+  border-radius: 5px;
+  width: 35px;
+}
+.burger div {
+  height: 2px;
+  width: 20px;
+  background: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+  /* border-style: dotted; */
+  /* border-color: cadetblue; */
+}
+
+@media screen and (max-width: 992px) {
+  .burger {
+    display: block;
+  }
+
+  .nav_right {
+    position: absolute;
+    /* margin-top: 5px; */
+    right: 0px;
+    /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+    /* min-height: 100vh; */
+    width: 50%;
+    /* background: #006666; */
+    margin-right: 0;
+    /* transform: translateX(100%); */
+    transform: scale(0);
+    transition: transform 0.5s linear;
+  }
+  /* for layout 0*/
+  .nav_active {
+    transform: translateX(-95%);
+  }
+
+  .toggle .lin1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .toggle .lin2 {
+    opacity: 0;
+  }
+
+  .toggle .lin3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+/* end responsive left index */
+/* ******************** end Article page **************************** */
