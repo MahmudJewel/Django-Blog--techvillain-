@@ -1,3 +1,22 @@
+/* ******************** start common items **************************** */
+/* common colors  */
+
+.bgwhite {
+  background: white;
+}
+.textgreen {
+  color: green;
+}
+
+.border-radius25 {
+  border-radius: 25px;
+}
+.heading {
+  color: green;
+  font-family: "Sansita Swashed", cursive;
+}
+/* ******************** end common items **************************** */
+
 /* ******************** start Nav-bar **************************** */
 /* external nav font  */
 footer,
@@ -40,6 +59,10 @@ nav,
 }
 /* ******************** end Nav-bar **************************** */
 
+/* ******************** start Home **************************** */
+
+/* ******************** end Home **************************** */
+
 /* ******************** start footer **************************** */
 .footerHeader {
   padding: 0px 0px 0px 0px;
@@ -59,7 +82,7 @@ nav,
 .bodycolor {
   background: #e5ece9;
 }
-.divcolor {
+.bgwht {
   background: white;
 }
 .curv {
@@ -80,7 +103,6 @@ table tr td .active {
   border-color: green;
   border-radius: 5px;
   width: 35px;
-
 }
 .burger div {
   height: 2px;

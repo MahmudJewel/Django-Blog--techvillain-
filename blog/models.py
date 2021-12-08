@@ -26,4 +26,18 @@ class blogPost(models.Model):
 
     def __str__(self):
         return self.title
+    
+    # short title 
+    def title50(self):
+        if len(self.title) > 50:
+            return self.title[0:50] + '...'
+        else:
+            return self.title
+
+    # short descriptions 
+    def desc150(self):
+        if len(self.desc) > 150:
+            return self.desc[0:150] + '...'
+        else:
+            return self.desc
 

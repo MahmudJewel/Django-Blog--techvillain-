@@ -9,13 +9,19 @@ from blog import models as BMODEL
 def search_view(request):
     if request.method == 'POST':
         search = request.POST.get('search')
-        print(f"search : {search}")
+        # print(f"search : {search}")
         searchItem = BMODEL.blogPost.objects.filter(title__contains = search)
     return render(request, 'home/search.html',{'searchItem':searchItem})
 
 
 def home_view(request):
-    return render(request, 'home/home.html')
+    categories = BMODEL.category.objects.all()
+    blogs = BMODEL.blogPost.objects.all().order_by('-date')[:3]
+    context= {
+        'categories' : categories,
+        'blogs' : blogs,
+    }
+    return render(request, 'home/home.html', context)
 
 
 def category_view(request, pk):
@@ -39,4 +45,4 @@ def category_view(request, pk):
         'singleBlog': singleBlog,
         'category': category,
         }
-    return render(request, 'home/home.html', context)
+    return render(request, 'blog/article_page.html', context)

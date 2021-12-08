@@ -1,63 +1,126 @@
 {% extends 'home/base.html' %} {% block content %}
-<title>{{ category}}-tech villain</title>
-
+<!-- title on top  -->
+<title>tech villain</title>
+<style></style>
 <div class="container">
-  <!-- for responsive zig-zag  -->
-  <div >
-    <div class="burger fixed-top mt-3 ms-3">
-      <div class="lin1"></div>
-      <div class="lin2"></div>
-      <div class="lin3"></div>
-    </div>
-  </div>
-
   <div class="row">
-    <!-- left-side index  -->
-    <div
-      class="
-        col-lg-3
-        shadow
-        divcolor
-        curv
-        me-3
-        py-4
-        px-md-3 px-sm-2
-        nav_right
-        bb
-      "
-    >
-      <h4>{{ category}}</h4>
-      <form action="" method="GET">
-        <table class="table">
-          {% for blog in blogs %}
-          <tr>
-            <td>
-              <a
-                href="/blog/{{blog.category.id}}?getid={{blog.id}}"
-                class="text-decoration-none {% if request.path == request.get_full_path %}active{% endif %}"
-              >
-                <h6>{{blog.title}}</h6>
-              </a>
-            </td>
-          </tr>
-          {% endfor %}
-        </table>
-      </form>
+    <div class="col-lg-9">
+      <!-- About section  -->
+      <div
+        class="
+          row
+          d-flex
+          justify-content-center
+          shadow
+          p-5
+          my-3
+          bgwhite
+          border-radius25
+        "
+      >
+        <div class="col-lg-5 d-flex justify-content-center">
+          <img
+            src="media/home/pro e.jpg"
+            alt="image"
+            style="max-width: 200px; max-height: 200px; border-radius: 100px"
+          />
+        </div>
+        <div class="col-lg-7">
+          <div class="row text-center heading p-2">
+            <h2>About the Author</h2>
+          </div>
+          <div class="row text-center">
+            <p>
+              Mahmud Jewel is the co-founder of Ⓣⓔⓒⓗ ⓥⓘⓛⓛⓐⓘⓝ. He is a
+              professional full stack python developer & tech enthusiast. He
+              will share his experiences through this platform. All the
+              resources and knowledge shared on this platform are FREE. Happy
+              Coding
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- category sections  -->
+      <div
+        class="
+          row
+          d-flex
+          justify-content-center
+          shadow
+          p-5
+          my-3
+          border-radius25
+        "
+        style="background: #f2f2f2;"
+      >
+        <div>
+          <h2 class="text-center heading">Category</h2>
+        </div>
+        {% for category in categories %}
+        <div
+          class="
+            col-md-3
+            shadow
+            p-5
+            my-3
+            mx-2
+            text-primary
+            d-flex
+            justify-content-center
+            bgwhite
+            border-radius25
+          "
+          style="
+            font-family: 'Sansita Swashed', cursive;
+          "
+        >
+          <a href="{% url 'blog' category.id %}" class="text-decoration-none"
+            ><h4>{{category.name}}</h4></a
+          >
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Recent blog  -->
+      <!-- <div
+        class="row d-flex justify-content-center shadow p-5 my-3"
+        style="
+          background: white;
+          border-radius: 25px;
+          font-family: 'Sansita Swashed', cursive;
+        "
+      >
+        <div class="col-lg-5 d-flex justify-content-center">
+          <img
+            src="pro e.jpg"
+            alt="image"
+            style="
+              max-width: 200px;
+              max-height: 200px;
+              border-radius: 100px;
+            "
+          />
+        </div>
+      </div> -->
     </div>
 
-    <div class="col-lg-8 py-4 px-lg-4 px-md-3 px-sm-1 divcolor curv shadow">
-      <div class="row">
-        <div class="row titleFont text-primary">
-          <h2>{{singleBlog.title}}</h2>
+    <!-- Recent blog  -->
+    <div class="col-lg-3 p-3">
+      <h3 class="m-2 heading text-center">Recent Articles</h3>
+      {% for blog in blogs %}
+      <div class="shadow bgwhite border-radius25 my-3 p-2">
+        <div class="row text-center p-2">
+          <h5>{{ blog.title50 }}</h5>
+          <p class="text-muted">{{blog.category}}</p>
+          <p style="text-align: justify">
+            {{blog.desc150|safe}}
+          </p>
+          <div class="col">
+            <a href="/blog/{{blog.category.id}}?getid={{blog.id}}" class="btn btn-primary border-radius">Read more</a>
+          </div>
         </div>
-        <div class="row">
-          <p>Last modified: {{singleBlog.date}}</p>
-        </div>
-        <hr />
-        <!-- <div class="row"> -->
-        <p>{{singleBlog.desc|safe}}</p>
-        <!-- </div> -->
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>

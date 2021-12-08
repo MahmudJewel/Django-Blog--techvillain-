@@ -1,5 +1,4 @@
-{% load static %}
-{% load nav_tag %}
+{% load static %} {% load nav_tag %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,44 +23,71 @@
     />
 
     <!-- external font  -->
-    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;800&display=swap" rel="stylesheet"> 
- 	 <!-- font-family: 'Sansita Swashed', cursive; -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Sansita Swashed', cursive; -->
 
-	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
-	<!--  font-family: 'Oswald', sans-serif;  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <!--  font-family: 'Oswald', sans-serif;  -->
 
-	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-	<!-- font-family: 'Acme', sans-serif;  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Acme', sans-serif;  -->
 
     <!-- external css  -->
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
   </head>
   <body class="bodycolor">
     <!-- navigations  -->
     <nav
-    class="navbar navbar-expand-lg fixed-top shadow bgcolor rounded-bottom"
-  >
-    <div class="container-fluid">
-      <a class="navbar-brand brandcolor ms-5" href="/">Tech Villain</a>
-      <button
-        class="navbar-toggler custom-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      class="navbar navbar-expand-lg fixed-top shadow bgcolor rounded-bottom"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand brandcolor ms-5" href="/">Tech Villain</a>
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <!--call from custom templates ==> nav_tags -->
             {% categoryfornav as navcategory %}
+            <!-- indivisual category  -->
             {% for cat in navcategory %}
+            <!-- for active status  -->
             {% url 'blog' cat.id as urll %}
             <li class="nav-item me-2 mb-lg-0 mb-3">
-              <a class="btn textColor {% if request.path == urll %}active{% endif %}" aria-current="page" href="{{ urll }}">{{cat}}</a>
+              <a
+                class="
+                  btn
+                  textColor
+                  {%
+                  if
+                  request.path
+                  ==
+                  urll
+                  %}active{%
+                  endif
+                  %}
+                "
+                aria-current="page"
+                href="{{ urll }}"
+                >{{cat}}</a
+              >
             </li>
             {% endfor %}
             <!-- <li class="nav-item me-2 mb-lg-0 mb-3">
@@ -83,9 +109,7 @@
               aria-label="Search"
               name="search"
             />
-            <button class="btn btn-primary" type="submit">
-              Search
-            </button>
+            <button class="btn btn-primary" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -165,10 +189,19 @@
         <br /><br /><br /><br /><br /><br />
       </div>
     </footer>
+    <!-- custom js  -->
+    <script src="{% static 'js/index.js' %}"></script>
 
-    <script src="{% static 'js/index.js' %}" ></script>
-    bootstrap JS
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
