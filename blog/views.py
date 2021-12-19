@@ -16,7 +16,7 @@ def search_view(request):
 
 def home_view(request):
     categories = BMODEL.category.objects.all()
-    blogs = BMODEL.blogPost.objects.all().order_by('-date')[:3]
+    blogs = BMODEL.blogPost.objects.all().order_by('-date')[:4]
     context= {
         'categories' : categories,
         'blogs' : blogs,

@@ -110,11 +110,11 @@
       {% for blog in blogs %}
       <div class="shadow bgwhite border-radius25 my-3 p-2">
         <div class="row text-center p-2">
-          <h5>{{ blog.title50 }}</h5>
+          <h5>{{ blog.title }}</h5>
           <p class="text-muted">{{blog.category}}</p>
-          <p style="text-align: justify">
+          <!-- <p style="text-align: justify">
             {{blog.desc150|safe}}
-          </p>
+          </p> -->
           <div class="col">
             <a href="/blog/{{blog.category.id}}?getid={{blog.id}}" class="btn btn-primary border-radius">Read more</a>
           </div>

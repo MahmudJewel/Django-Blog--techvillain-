@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <title></title> -->
+    <!-- title icon  -->
+    <link rel="icon" type="image/png" href="media/titleicon.png">
     <!-- botstrap 5  -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -43,6 +45,14 @@
 
     <!-- external css  -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+
+    <!-- tinymce plugin -->
+    <script src="https://cdn.tiny.cloud/1/p6lx06a2rkky8rxapdzwce0rje6sqmlujlmzhefjonuwjyon/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script> -->
   </head>
   <body class="bodycolor">
     <!-- navigations  -->
@@ -75,14 +85,7 @@
                 class="
                   btn
                   textColor
-                  {%
-                  if
-                  request.path
-                  ==
-                  urll
-                  %}active{%
-                  endif
-                  %}
+                  {% if request.path == urll %}active{% endif %}
                 "
                 aria-current="page"
                 href="{{ urll }}"
@@ -125,7 +128,7 @@
     </div>
     <br /><br /><br />
     <!-- content  -->
-    <div style="min-height: 100vh">{% block content %} {% endblock %}</div>
+    <div style="min-height: 100vh;">{% block content %} {% endblock %}</div>
 
     <!-- Footer -->
     <br /><br /><br />
@@ -203,5 +206,16 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
+    <!-- tinymce plugins  -->
+    <script>
+      tinymce.init({
+        selector: 'textarea',
+        plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+      });
+    </script>
   </body>
 </html>

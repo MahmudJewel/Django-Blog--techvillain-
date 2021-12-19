@@ -30,26 +30,17 @@
       <form action="" method="GET">
         <table class="table">
           {% for blog in blogs %}
+          
           <tr>
             <td>
               <a
                 href="/blog/{{blog.category.id}}?getid={{blog.id}}"
-                class="
-                  text-decoration-none
-                  {%
-                  if
-                  request.path
-                  ==
-                  request.get_full_path
-                  %}active{%
-                  endif
-                  %}
-                "
-              >
+                class="text-decoration-none">
                 <h6>{{blog.title}}</h6>
               </a>
             </td>
           </tr>
+          
           {% endfor %}
         </table>
       </form>
@@ -71,4 +62,12 @@
     </div>
   </div>
 </div>
+<script>
+ tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+  plugins: 'anchor',
+  toolbar: 'anchor',
+  menubar: 'insert'
+});
+</script>
 {% endblock %}
