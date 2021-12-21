@@ -1,5 +1,8 @@
-{% extends 'home/base.html' %} {% block content %}
+{% extends 'home/base.html' %} {% load static %} {% block content %}
+
 <title>{{ category}}-tech villain</title>
+<!-- prism css for syntax highlighter  -->
+<link rel="stylesheet" href="{% static 'css/prismokd.css' %}" />
 
 <div class="container">
   <!-- for responsive zig-zag  -->
@@ -28,19 +31,21 @@
     >
       <h4>{{ category}}</h4>
       <form action="" method="GET">
+        {% csrf_token %}
         <table class="table">
           {% for blog in blogs %}
-          
+
           <tr>
             <td>
               <a
                 href="/blog/{{blog.category.id}}?getid={{blog.id}}"
-                class="text-decoration-none">
+                class="text-decoration-none"
+              >
                 <h6>{{blog.title}}</h6>
               </a>
             </td>
           </tr>
-          
+
           {% endfor %}
         </table>
       </form>
@@ -62,12 +67,6 @@
     </div>
   </div>
 </div>
-<script>
- tinymce.init({
-  selector: 'textarea',  // change this value according to your HTML
-  plugins: 'anchor',
-  toolbar: 'anchor',
-  menubar: 'insert'
-});
-</script>
+<!-- prism js for systax highlighter  -->
+<script src="{% static 'js/prismokd.js' %}"></script>
 {% endblock %}
