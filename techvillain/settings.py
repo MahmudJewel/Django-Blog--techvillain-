@@ -137,3 +137,49 @@ MEDIA_URL = "/media/" #it will help to access static directory through browser
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# for tinymce 
+TINYMCE_DEFAULT_CONFIG = {
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'silver',
+    "height": 600,
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak help paste
+            ''',
+
+    'toolbar1': '''
+            fullscreen | formatselect | bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample | preview
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code | help
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+}
+
+# TINYMCE_DEFAULT_CONFIG = {
+#     "theme": "silver",
+#     "height": 500,
+#     "menubar": False,
+#     "plugins": 
+#     "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
+#     "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
+#     "code,help,wordcount codesample",
+
+#     "toolbar": 
+#     "undo redo | formatselect | "
+#     "bold italic backcolor | alignleft aligncenter "
+#     "alignright alignjustify | bullist numlist outdent indent | "
+#     "help codesample preview",
+# }

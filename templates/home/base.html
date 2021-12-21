@@ -43,11 +43,14 @@
     />
     <!-- font-family: 'Acme', sans-serif;  -->
 
+    <!-- prism css for syntaxt highlighter  -->
+    <!-- <link rel="stylesheet" href="{% static 'css/prismokd.css' %}"> -->
+
     <!-- external css  -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
 
     <!-- tinymce plugin -->
-    <script src="https://cdn.tiny.cloud/1/p6lx06a2rkky8rxapdzwce0rje6sqmlujlmzhefjonuwjyon/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/p6lx06a2rkky8rxapdzwce0rje6sqmlujlmzhefjonuwjyon/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
     <!-- <script>
       tinymce.init({
         selector: '#mytextarea'
@@ -192,6 +195,9 @@
         <br /><br /><br /><br /><br /><br />
       </div>
     </footer>
+    <!-- prism js for systax highlighter  -->
+    <!-- <script src="{% static 'js/prismokd.js' %}" ></script> -->
+
     <!-- custom js  -->
     <script src="{% static 'js/index.js' %}"></script>
 
@@ -207,7 +213,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- tinymce plugins  -->
-    <script>
+    <!-- <script>
       tinymce.init({
         selector: 'textarea',
         plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
@@ -216,6 +222,6 @@
         tinycomments_mode: 'embedded',
         tinycomments_author: 'Author name',
       });
-    </script>
+    </script> -->
   </body>
 </html>
