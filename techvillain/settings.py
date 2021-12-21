@@ -150,7 +150,7 @@ TINYMCE_DEFAULT_CONFIG = {
             table code lists fullscreen  insertdatetime  nonbreaking
             contextmenu directionality searchreplace wordcount visualblocks
             visualchars code fullscreen autolink lists  charmap print  hr
-            anchor pagebreak help paste
+            anchor pagebreak help 
             ''',
 
     'toolbar1': '''
