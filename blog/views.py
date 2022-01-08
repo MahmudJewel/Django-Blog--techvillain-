@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http.request import QueryDict
 
 from blog import models as BMODEL
@@ -7,11 +7,29 @@ from blog import models as BMODEL
 # Create your views here.
 
 def search_view(request):
+    search=''
+    searchItem = BMODEL.blogPost.objects.all()
+    total_searchItem=searchItem.count() # for counting total in pagination
     if request.method == 'POST':
         search = request.POST.get('search')
         # print(f"search : {search}")
         searchItem = BMODEL.blogPost.objects.filter(title__contains = search)
-    return render(request, 'home/search.html',{'searchItem':searchItem})
+        total_searchItem=searchItem.count() # for counting total in pagination
+    # for Paginator 
+    page = request.GET.get('page', 1)
+    paginator = Paginator(searchItem, 6)  #6 objects in each page.
+    try:
+	    searchItem = paginator.page(page)
+    except PageNotAnInteger:
+	    searchItem = paginator.page(1)
+    except EmptyPage:
+	    searchItem = paginator.page(paginator.num_pages)
+    context={
+        'searchItem':searchItem,
+        'search':search,
+        'total_searchItem':total_searchItem,
+    }
+    return render(request, 'home/search.html',context)
 
 
 def home_view(request):
