@@ -126,13 +126,14 @@ table tr td .active {
     /* display: flex;
   flex-direction: column;
   justify-content: space-around; */
-    /* min-height: 100vh; */
+    min-height: 100vh;
     width: 50%;
     /* background: #006666; */
     margin-right: 0;
     /* transform: translateX(100%); */
     transform: scale(0);
     transition: transform 0.5s linear;
+    z-index: 1; /*for under & upper layer  */
   }
   /* for layout 0*/
   .nav_active {
